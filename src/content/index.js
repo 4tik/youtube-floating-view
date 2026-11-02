@@ -93,7 +93,17 @@ observer.observe(document.documentElement, {
 });
 
 // Initial scan
-scanForVideos().forEach(attachVideoListeners);
+const initScan = () => {
+  const videos = scanForVideos();
+  videos.forEach(attachVideoListeners);
+};
+initScan();
+
+// Listen for YouTube Single Page Application navigations & history changes
+window.addEventListener('yt-navigate-finish', initScan);
+window.addEventListener('yt-page-data-updated', initScan);
+window.addEventListener('popstate', initScan);
+window.addEventListener('load', initScan);
 
 // Auto-PiP on Tab Switch if enabled in settings
 document.addEventListener('visibilitychange', () => {

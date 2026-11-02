@@ -33,6 +33,7 @@ function runTests() {
   assert(manifest.background && manifest.background.service_worker === 'background/service-worker.js', 'Service worker points to background/service-worker.js');
   assert(manifest.content_scripts && manifest.content_scripts[0].js[0] === 'content/content-bundle.js', 'Content script points to content/content-bundle.js');
   assert(manifest.commands && manifest.commands['toggle-pip'], 'Alt+Shift+P shortcut command configured');
+  assert(manifest.host_permissions && manifest.host_permissions.includes('<all_urls>'), 'Manifest has host_permissions for <all_urls>');
 
   // Test 3: Icons exist
   for (const size of [16, 32, 48, 128]) {

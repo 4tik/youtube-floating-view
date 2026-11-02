@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "YouTube Floating View - Picture-in-Picture for Videos",
   "short_name": "YouTube Floating View",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vivaldi-inspired Picture-in-Picture (PiP) extension for YouTube and HTML5 videos with multi-video selection and quick playback controls.",
   "action": {
     "default_popup": "popup.html",
@@ -38,6 +38,9 @@
     "activeTab",
     "scripting",
     "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "commands": {
     "toggle-pip": {
