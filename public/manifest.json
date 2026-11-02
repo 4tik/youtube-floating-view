@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Floating View - Picture-in-Picture for Videos",
+  "short_name": "YouTube Floating View",
+  "version": "1.0.0",
+  "description": "Vivaldi-inspired Picture-in-Picture (PiP) extension for YouTube and HTML5 videos with multi-video selection and quick playback controls.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "YouTube Floating View - Picture-in-Picture"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content/content-bundle.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus"
+  ],
+  "commands": {
+    "toggle-pip": {
+      "suggested_key": {
+        "default": "Alt+Shift+P",
+        "mac": "Alt+Shift+P"
+      },
+      "description": "Toggle Picture-in-Picture for active video"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
